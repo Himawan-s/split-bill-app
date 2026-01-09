@@ -114,6 +114,7 @@ export async function POST(request: Request) {
           await prisma.assignment.create({
             data: {
               menuItemId: menuItem.id,
+              billId: bill.id,
               personId: person.id,
               sharePercentage: assignment.sharePercentage,
             },
