@@ -156,7 +156,7 @@ export default function StepAssignment({
 
                 {!isAssigned && (
                   <p className="mt-3 text-sm text-amber-600">
-                    ⚠️ This item hasn't been assigned to anyone yet
+                    {"⚠️ This item hasn't been assigned to anyone yet"}
                   </p>
                 )}
               </div>
