@@ -118,7 +118,7 @@ export default function StepAssignment({
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <h3 className="font-semibold text-gray-900 text-lg">{item.name}</h3>
-                    <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                     <p className="text-gray-600">Rp {item.price.toLocaleString('id-ID')}</p>
                   </div>
                   {isAssigned && (
                     <div className="text-right">

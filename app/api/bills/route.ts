@@ -75,7 +75,7 @@ export async function POST(request: Request) {
         taxPercentage: validatedData.taxPercentage,
         servicePercentage: validatedData.servicePercentage,
         discountPercentage: validatedData.discountPercentage,
-        totalAmount: calculations.total,
+        totalAmount: Math.round(calculations.total),
         people: {
           create: validatedData.people.map((p) => ({
             name: p.name,
@@ -84,7 +84,7 @@ export async function POST(request: Request) {
         menuItems: {
           create: validatedData.menuItems.map((item) => ({
             name: item.name,
-            price: item.price,
+            price: Math.round(item.price),
           })),
         },
       },

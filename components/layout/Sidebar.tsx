@@ -162,7 +162,7 @@ export default function Sidebar({ onBillSelect, onNewBill }: SidebarProps) {
                       {bill.people.length} {bill.people.length === 1 ? "person" : "people"}
                     </span>
                     <span className="text-lg font-bold text-sky-blue-600">
-                      ${bill.totalAmount.toFixed(2)}
+                      Rp {bill.totalAmount.toLocaleString('id-ID')}
                     </span>
                   </div>
                 </div>

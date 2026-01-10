@@ -50,31 +50,39 @@ export default function StepSummary({
         <div className="space-y-3">
           <div className="flex justify-between text-sm">
             <span className="text-gray-600">Subtotal:</span>
-            <span className="text-gray-900">${calculations.subtotal.toFixed(2)}</span>
+            <span className="text-gray-900 text-lg font-semibold">
+              Rp {calculations.subtotal.toLocaleString('id-ID')}
+            </span>
           </div>
           {calculations.taxAmount > 0 && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Tax ({billData.taxPercentage}%):</span>
-              <span className="text-gray-900">${calculations.taxAmount.toFixed(2)}</span>
+              <span className="text-gray-900 font-medium">
+                Rp {calculations.taxAmount.toLocaleString('id-ID')}
+              </span>
             </div>
           )}
           {calculations.serviceAmount > 0 && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Service ({billData.servicePercentage}%):</span>
-              <span className="text-gray-900">${calculations.serviceAmount.toFixed(2)}</span>
+              <span className="text-gray-900 font-medium">
+                Rp {calculations.serviceAmount.toLocaleString('id-ID')}
+              </span>
             </div>
           )}
           {calculations.discountAmount > 0 && (
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Discount ({billData.discountPercentage}%):</span>
-              <span className="text-green-600">-${calculations.discountAmount.toFixed(2)}</span>
+              <span className="text-green-600 font-medium">
+                -Rp {calculations.discountAmount.toLocaleString('id-ID')}
+              </span>
             </div>
           )}
           <div className="border-t border-sky-blue-200 pt-3 mt-3">
             <div className="flex justify-between">
               <span className="text-lg font-bold text-gray-900">Total:</span>
               <span className="text-2xl font-bold text-sky-blue-600">
-                ${calculations.total.toFixed(2)}
+                Rp {calculations.total.toLocaleString('id-ID')}
               </span>
             </div>
           </div>
@@ -104,7 +112,7 @@ export default function StepSummary({
                           </span>
                         )}
                       </span>
-                      <span className="font-medium">${item.shareAmount.toFixed(2)}</span>
+                      <span className="font-medium">Rp {item.shareAmount.toLocaleString('id-ID')}</span>
                     </div>
                   ))}
                 </div>
@@ -113,29 +121,29 @@ export default function StepSummary({
               <div className="border-t border-gray-200 pt-3 space-y-1">
                 <div className="flex justify-between text-xs text-gray-500">
                   <span>Items:</span>
-                  <span>${breakdown.itemsSubtotal.toFixed(2)}</span>
+                  <span>Rp {breakdown.itemsSubtotal.toLocaleString('id-ID')}</span>
                 </div>
                 {breakdown.taxShare > 0 && (
                   <div className="flex justify-between text-xs text-gray-500">
                     <span>Tax:</span>
-                    <span>${breakdown.taxShare.toFixed(2)}</span>
+                    <span>Rp {breakdown.taxShare.toLocaleString('id-ID')}</span>
                   </div>
                 )}
                 {breakdown.serviceShare > 0 && (
                   <div className="flex justify-between text-xs text-gray-500">
                     <span>Service:</span>
-                    <span>${breakdown.serviceShare.toFixed(2)}</span>
+                    <span>Rp {breakdown.serviceShare.toLocaleString('id-ID')}</span>
                   </div>
                 )}
                 {breakdown.discountShare > 0 && (
                   <div className="flex justify-between text-xs text-green-600">
                     <span>Discount:</span>
-                    <span>-${breakdown.discountShare.toFixed(2)}</span>
+                    <span>-Rp {breakdown.discountShare.toLocaleString('id-ID')}</span>
                   </div>
                 )}
                 <div className="flex justify-between font-bold text-sky-blue-600 pt-1">
                   <span>Total:</span>
-                  <span>${breakdown.total.toFixed(2)}</span>
+                  <span>Rp {breakdown.total.toLocaleString('id-ID')}</span>
                 </div>
               </div>
             </div>

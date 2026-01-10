@@ -23,7 +23,7 @@ export default function StepMenu({ menuItems, onUpdate, onNext, onBack }: StepMe
         const newItem: MenuItem = {
           id: Date.now().toString(),
           name: name.trim(),
-          price: priceNum,
+          price: Math.round(priceNum),
         }
         onUpdate([...menuItems, newItem])
         setName("")
@@ -62,14 +62,14 @@ export default function StepMenu({ menuItems, onUpdate, onNext, onBack }: StepMe
           className="md:col-span-2"
         />
         <Input
-          label="Price"
+          label="Price (Rp)"
           type="number"
-          step="0.01"
+          step="1"
           min="0"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           onKeyPress={handleKeyPress}
-          placeholder="0.00"
+          placeholder="0"
         />
       </div>
       <div className="flex justify-end">
@@ -91,7 +91,7 @@ export default function StepMenu({ menuItems, onUpdate, onNext, onBack }: StepMe
               >
                 <span className="text-gray-900 font-medium">{item.name}</span>
                 <div className="flex items-center gap-4">
-                  <span className="text-gray-700">${item.price.toFixed(2)}</span>
+                  <span className="text-gray-700">Rp {item.price.toLocaleString('id-ID')}</span>
                   <button
                     onClick={() => removeMenuItem(item.id)}
                     className="text-red-500 hover:text-red-700 font-medium text-sm transition"
@@ -105,7 +105,7 @@ export default function StepMenu({ menuItems, onUpdate, onNext, onBack }: StepMe
           <div className="flex justify-between items-center pt-2 border-t border-gray-200">
             <span className="font-semibold text-gray-900">Subtotal:</span>
             <span className="text-xl font-bold text-sky-blue-600">
-              ${subtotal.toFixed(2)}
+              Rp {subtotal.toLocaleString('id-ID')}
             </span>
           </div>
         </div>

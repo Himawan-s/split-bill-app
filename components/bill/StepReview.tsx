@@ -97,7 +97,7 @@ export default function StepReview({
         <div className="flex justify-between items-center">
           <span className="text-gray-700 font-medium">Subtotal:</span>
           <span className="text-lg font-semibold text-gray-900">
-            ${calculations.subtotal.toFixed(2)}
+            Rp {calculations.subtotal.toLocaleString('id-ID')}
           </span>
         </div>
 
@@ -107,7 +107,7 @@ export default function StepReview({
               Tax ({parseFloat(tax) || 0}%):
             </span>
             <span className="text-gray-900 font-medium">
-              ${calculations.taxAmount.toFixed(2)}
+              Rp {calculations.taxAmount.toLocaleString('id-ID')}
             </span>
           </div>
         )}
@@ -118,7 +118,7 @@ export default function StepReview({
               Service ({parseFloat(service) || 0}%):
             </span>
             <span className="text-gray-900 font-medium">
-              ${calculations.serviceAmount.toFixed(2)}
+              Rp {calculations.serviceAmount.toLocaleString('id-ID')}
             </span>
           </div>
         )}
@@ -129,7 +129,7 @@ export default function StepReview({
               Discount ({parseFloat(discount) || 0}%):
             </span>
             <span className="text-green-600 font-medium">
-              -${calculations.discountAmount.toFixed(2)}
+              -Rp {calculations.discountAmount.toLocaleString('id-ID')}
             </span>
           </div>
         )}
@@ -138,7 +138,7 @@ export default function StepReview({
           <div className="flex justify-between items-center">
             <span className="text-xl font-bold text-gray-900">Total:</span>
             <span className="text-2xl font-bold text-sky-blue-600">
-              ${calculations.total.toFixed(2)}
+              Rp {calculations.total.toLocaleString('id-ID')}
             </span>
           </div>
         </div>

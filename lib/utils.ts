@@ -66,6 +66,13 @@ export function calculateBill(
   const discountAmount = (subtotal * discountPercentage) / 100
   const total = subtotal + taxAmount + serviceAmount - discountAmount
 
+  // Round all monetary values to nearest integer
+  const roundedSubtotal = Math.round(subtotal)
+  const roundedTaxAmount = Math.round(taxAmount)
+  const roundedServiceAmount = Math.round(serviceAmount)
+  const roundedDiscountAmount = Math.round(discountAmount)
+  const roundedTotal = Math.round(total)
+
   // Calculate per-person breakdowns
   const personBreakdowns: PersonBreakdown[] = people.map((person) => {
     // Find all assignments for this person
@@ -95,7 +102,7 @@ export function calculateBill(
         menuItemName: menuItem.name,
         price: menuItem.price,
         sharePercentage: assignment.sharePercentage,
-        shareAmount,
+        shareAmount: Math.round(shareAmount),
       }
     })
 
@@ -111,21 +118,21 @@ export function calculateBill(
     return {
       personId: person.id,
       personName: person.name,
-      itemsSubtotal,
-      taxShare,
-      serviceShare,
-      discountShare,
-      total: personTotal,
+      itemsSubtotal: Math.round(itemsSubtotal),
+      taxShare: Math.round(taxShare),
+      serviceShare: Math.round(serviceShare),
+      discountShare: Math.round(discountShare),
+      total: Math.round(personTotal),
       items,
     }
   })
 
   return {
-    subtotal,
-    taxAmount,
-    serviceAmount,
-    discountAmount,
-    total,
+    subtotal: roundedSubtotal,
+    taxAmount: roundedTaxAmount,
+    serviceAmount: roundedServiceAmount,
+    discountAmount: roundedDiscountAmount,
+    total: roundedTotal,
     personBreakdowns,
   }
 }

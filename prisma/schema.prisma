@@ -27,10 +27,11 @@ model Bill {
   id                 String   @id @default(cuid())
   userId             String
   title              String?  @default("Untitled Bill")
+  currency           String   @default("IDR")
   taxPercentage      Float    @default(0)
   servicePercentage  Float    @default(0)
   discountPercentage Float    @default(0)
-  totalAmount        Float    @default(0)
+  totalAmount        Int      @default(0)
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 
@@ -58,7 +59,7 @@ model MenuItem {
   id        String   @id @default(cuid())
   billId    String
   name      String
-  price     Float
+  price     Int
   createdAt DateTime @default(now())
 
   bill        Bill         @relation(fields: [billId], references: [id], onDelete: Cascade)
